@@ -15,6 +15,13 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+\Laravel\Vapor\Runtime\StorageDirectories::create();
+
+/*
+ * Allow overriding the storage path in production using an environment variable.
+ */
+$app->useStoragePath($_ENV['APP_STORAGE'] ?? $app->storagePath());
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
