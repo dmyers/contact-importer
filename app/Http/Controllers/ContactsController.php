@@ -11,6 +11,18 @@ use Illuminate\Support\Facades\File as Storage;
 class ContactsController extends Controller
 {
     /**
+     * Show a list of all the contacts.
+     */
+    public function index()
+    {
+        $contacts = Contact::query()
+            ->with('customAttributes')
+            ->get();
+
+        return response()->json($contacts);
+    }
+
+    /**
      * Uploads a list of contacts into storage
      * for processing field mapping later.
      *

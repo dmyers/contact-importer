@@ -16,5 +16,6 @@ Route::get('/', function () {
     return view('app', compact('core_fields'));
 });
 
+Route::get('contacts', 'ContactsController@index');
 Route::post('contacts/upload', 'ContactsController@upload');
 Route::post('contacts/import', 'ContactsController@import');
