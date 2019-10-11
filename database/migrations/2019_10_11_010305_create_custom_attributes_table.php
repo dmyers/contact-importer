@@ -19,6 +19,8 @@ class CreateCustomAttributesTable extends Migration
             $table->string('key');
             $table->text('value');
             $table->timestamps();
+
+            $table->unique(['contact_id', 'key']);
         });
     }
 
