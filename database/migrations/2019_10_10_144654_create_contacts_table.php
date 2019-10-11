@@ -27,7 +27,8 @@ class CreateContactsTable extends Migration
             $table->string('unsubscribed_status', 191)->default('none');
             $table->timestamps();
 
-            $table->index(['team_id', 'phone'], 'idx_phone_search');
+            $table->index('phone', 'idx_phone_search');
+            // $table->index(['team_id', 'phone'], 'idx_phone_search');
             // $table->index('team_id', 'contacts_team_id_index');
             $table->index('first_name', 'contacts_first_name_index');
             $table->index('last_name', 'contacts_last_name_index');
