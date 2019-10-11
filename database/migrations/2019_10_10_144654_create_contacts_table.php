@@ -25,7 +25,7 @@ class CreateContactsTable extends Migration
             $table->string('fb_messenger_id', 191)->nullable();
             $table->string('time_zone', 191)->nullable();
             $table->string('unsubscribed_status', 191)->default('none');
-            $table->nullableTimestamps();
+            $table->timestamps();
 
             $table->index(['team_id', 'phone'], 'idx_phone_search');
             $table->index('team_id', 'contacts_team_id_index');
