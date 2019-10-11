@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script>
+    window.App = {!! collect(compact('core_fields'))->toJson() !!};
+    </script>
 </head>
 <body>
     <div id="app" class="mt-3 mt-md-5">
         <div class="container">
-            <example-component />
+            <contact-importer />
         </div>
     </div>
 

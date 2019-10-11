@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('app');
+    $core_fields = \App\Contact::CORE_FIELDS;
+    return view('app', compact('core_fields'));
 });
+
+Route::post('contacts/upload', 'ContactsController@upload');
+Route::post('contacts/import', 'ContactsController@import');
