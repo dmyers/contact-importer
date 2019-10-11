@@ -16,15 +16,15 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
             // $table->unsignedInteger('team_id');
-            $table->string('first_name', 191)->nullable();
-            $table->string('last_name', 191)->nullable();
-            $table->string('email', 191)->nullable();
-            $table->string('phone', 191);
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone');
             $table->integer('sticky_phone_number_id')->nullable();
-            $table->string('twitter_id', 191)->nullable();
-            $table->string('fb_messenger_id', 191)->nullable();
-            $table->string('time_zone', 191)->nullable();
-            $table->string('unsubscribed_status', 191)->default('none');
+            $table->string('twitter_id')->nullable();
+            $table->string('fb_messenger_id')->nullable();
+            $table->string('time_zone')->nullable();
+            $table->string('unsubscribed_status')->default('none');
             $table->timestamps();
 
             $table->index('phone', 'idx_phone_search');
