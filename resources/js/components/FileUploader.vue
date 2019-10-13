@@ -4,7 +4,7 @@
 
         <h3 class="h3 mb-3">Import Spreadsheet</h3>
 
-        <input @change="onFileChange" type="file" ref="file" accept=".csv" />
+        <input @change="onFileChange" type="file" name="file" ref="file" accept=".csv" />
 
         <b-row class="mt-4">
             <b-col cols="4" offset="4">
