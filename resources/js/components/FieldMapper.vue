@@ -44,7 +44,7 @@
                                 <b-spinner label="Spinning"></b-spinner>
                             </span>
                             <span v-cloak v-show="!loading">
-                                Import {{ fileImport.itemCount }} Contacts
+                                Import Contacts
                                 <fa-icon :icon="['fas', 'chevron-right']" size="xs" class="ml-2" />
                             </span>
                         </b-button>
