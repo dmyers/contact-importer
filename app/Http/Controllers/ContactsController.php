@@ -47,7 +47,12 @@ class ContactsController extends Controller
         // Count the number of contacts to import
         $itemCount = 0;
         while (!$stream->eof()) {
-            if ($stream->fgetcsv() !== false) {
+            $data = $stream->fgetcsv();
+            if ($data !== false) {
+                if (count($data) < 1 || $data[0] === null) {
+                    // The line was blank and parsed into an empty array
+                    continue;
+                }
                 $itemCount++;
             }
         }
@@ -108,6 +113,10 @@ class ContactsController extends Controller
             if ($data !== false) {
                 if ($count === 1) {
                     // Skip the field headers from being imported
+                    continue;
+                }
+                if (count($data) < 1 || $data[0] === null) {
+                    // The line was blank and parsed into an empty array
                     continue;
                 }
 
