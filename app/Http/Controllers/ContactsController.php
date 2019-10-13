@@ -12,6 +12,8 @@ class ContactsController extends Controller
 {
     /**
      * Show a list of all the contacts.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
