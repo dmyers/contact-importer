@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    @if (app()->isLocal())
+    @if (app()->isLocal() && env('MIX_HOT_RELOAD'))
         <script src="http://localhost:8080/js/app.js"></script>
     @else
         <script src="{{ mix('js/app.js') }}"></script>
