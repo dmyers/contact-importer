@@ -6,7 +6,7 @@ use App\Contact;
 use Illuminate\Http\File;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File as Storage;
+use Illuminate\Support\Facades\Storage;
 
 class ContactsController extends Controller
 {
@@ -92,8 +92,9 @@ class ContactsController extends Controller
         }
 
         $fileId = $request->input('fileId');
-        $filePath = storage_path('app/uploads').'/'.$fileId.'.csv';
-        $file = new File($filePath);
+        $fileName = $fileId.'.csv';
+        $filePath = 'uploads/'.$fileName;
+        $file = new File(Storage::path($filePath));
         $stream = $file->openFile();
         $coreFields = array_keys(Contact::CORE_FIELDS);
         $fields = $request->input('fields');
