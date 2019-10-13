@@ -24,7 +24,7 @@ class HomePage extends Page
      */
     public function assert(Browser $browser)
     {
-        //
+        $browser->assertSee('Contact Importer');
     }
 
     /**
@@ -37,5 +37,28 @@ class HomePage extends Page
         return [
             '@element' => '#selector',
         ];
+    }
+
+    /**
+     * Import contacts from a CSV file.
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @return void
+     */
+    public function importContacts(Browser $browser)
+    {
+        $browser->attach('file', base_path('tests/fixtures/contacts.csv'));
+    }
+
+    /**
+     * Map contact fields to finish import.
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @return void
+     */
+    public function mapContactFields(Browser $browser)
+    {
+        $browser->waitForText('Map Contact Fields', 1)
+            ->press('Import Contacts');
     }
 }
