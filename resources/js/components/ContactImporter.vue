@@ -35,6 +35,11 @@
 
 <script>
 export default {
+    components: {
+        'file-uploader': require('./FileUploader').default,
+        'field-mapper': require('./FieldMapper').default
+    },
+
     data: () => ({
         steps: {
             fileUpload: true,
