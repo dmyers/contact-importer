@@ -12,7 +12,11 @@
 <body>
     <div id="app" class="mt-3 mt-md-5 mb-3 mb-md-5">
         <div class="container">
-            <router-view />
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <router-view />
+                </div>
+            </div>
         </div>
     </div>
 

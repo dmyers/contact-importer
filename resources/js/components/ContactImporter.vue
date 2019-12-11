@@ -8,7 +8,7 @@
         <hr />
 
         <b-row class="mt-5">
-            <b-col cols="8" offset="2">
+            <b-col cols="12" offset="0">
                 <file-uploader v-cloak v-show="steps.fileUpload" @uploaded="mapFields" />
 
                 <field-mapper v-cloak v-show="steps.fieldMap" @imported="confirmImport" :fileImport="fileImport" />
