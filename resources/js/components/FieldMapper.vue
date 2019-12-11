@@ -41,7 +41,7 @@
                     <b-col cols="8" offset="2">
                         <b-button @click="onContinueClick" :disabled="loading" variant="primary" size="lg" block>
                             <span v-cloak v-show="loading">
-                                <b-spinner label="Spinning"></b-spinner>
+                                <b-spinner label="Spinning" />
                             </span>
                             <span v-cloak v-show="!loading">
                                 Import Contacts
