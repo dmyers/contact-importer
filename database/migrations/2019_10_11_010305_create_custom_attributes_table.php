@@ -15,7 +15,7 @@ class CreateCustomAttributesTable extends Migration
     {
         Schema::create('custom_attributes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('contact_id');
+            $table->unsignedBigInteger('contact_id');
             $table->string('key');
             $table->text('value');
             $table->timestamps();
