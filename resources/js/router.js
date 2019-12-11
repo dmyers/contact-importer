@@ -4,6 +4,14 @@ Vue.use(VueRouter);
 
 const routes = [
     {
+        path: '/campaigns/new',
+        component: require('./components/CampaignForm.vue').default
+    },
+    {
+        path: '/campaigns',
+        component: require('./components/CampaignManager.vue').default
+    },
+    {
         path: '/import',
         component: require('./components/ContactImporter.vue').default
     },

@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('contacts', 'ContactsController@index');
 Route::post('contacts/upload', 'ContactsController@upload');
 Route::post('contacts/import', 'ContactsController@import');
+
+Route::get('campaigns', 'CampaignsController@index');
+Route::post('campaigns', 'CampaignsController@create');
+Route::post('campaigns/{id}/publish', 'CampaignsController@publish');
