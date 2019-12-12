@@ -26,6 +26,7 @@
                             <h5 class="h5 mb-0">
                                 <fa-icon :icon="['fas', 'podcast']" size="sm" class="mr-1" />
                                 {{ campaign.name }}
+                                <b-badge>{{ campaign.phone }}</b-badge>
                             </h5>
 
                             <small class="mt-2 text-muted">
