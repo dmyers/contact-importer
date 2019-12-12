@@ -16,7 +16,7 @@
                         <b-form-input v-model="form.name" id="campaign-name" required autofocus />
                     </b-form-group>
 
-                    <b-form-group label="Campaign Message" label-for="campaign-message" class="pt-3 pb-3">
+                    <b-form-group label="Message Body" label-for="campaign-message" class="pt-3 pb-3">
                         <b-form-textarea v-model="form.message" rows="3" max-rows="6" id="campaign-message" required />
                     </b-form-group>
 
