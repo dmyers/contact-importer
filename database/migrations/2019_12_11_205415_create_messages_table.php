@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('contact_id');
             $table->text('body');
             $table->enum('status', ['pending', 'queued', 'delivered', 'failed'])->default('pending');
+            $table->string('error')->nullable();
             $table->string('twilio_id')->nullable();
             $table->timestamps();
 

@@ -56,7 +56,10 @@ class SendContactMessage implements ShouldQueue
         }
         catch (Exception $e) {
             report($e);
-            $message->update(['status' => Message::STATUS_FAILED]);
+            $message->update([
+                'status' => Message::STATUS_FAILED,
+                'error'  => $e->getMessage(),
+            ]);
             return;
         }
 
