@@ -34,7 +34,7 @@ class Contact extends Model
     /**
      * Get the custom attributes for the contact.
      *
-     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function customAttributes()
     {
