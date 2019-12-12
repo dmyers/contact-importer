@@ -16,6 +16,14 @@
                         <b-form-input v-model="form.name" id="campaign-name" required autofocus />
                     </b-form-group>
 
+                    <b-form-group
+                        label="Phone Number"
+                        label-for="campaign-phone"
+                        description="This must be a phone number registered in Twilio."
+                    >
+                        <b-form-input v-model="form.phone" id="campaign-phone" placeholder="+15551234657" required />
+                    </b-form-group>
+
                     <b-form-group label="Message Body" label-for="campaign-message" class="pt-3 pb-3">
                         <b-form-textarea v-model="form.message" rows="3" max-rows="6" id="campaign-message" required />
                     </b-form-group>
@@ -45,6 +53,7 @@ export default {
         loading: false,
         form: {
             name: "",
+            phone: "",
             message: ""
         }
     }),

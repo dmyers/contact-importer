@@ -16,6 +16,7 @@ class CreateCampaignsTable extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('phone');
             $table->text('message');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

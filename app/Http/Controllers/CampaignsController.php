@@ -32,6 +32,7 @@ class CampaignsController extends Controller
     {
         $data = $request->validate([
             'name'    => 'required',
+            'phone'   => 'required',
             'message' => 'required',
         ]);
 
