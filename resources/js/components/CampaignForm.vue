@@ -20,6 +20,7 @@
                         label="Phone Number"
                         label-for="campaign-phone"
                         description="This must be a phone number registered in Twilio."
+                        class="pt-3"
                     >
                         <b-form-input v-model="form.phone" id="campaign-phone" placeholder="+15551234657" required />
                     </b-form-group>
