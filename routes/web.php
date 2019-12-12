@@ -23,3 +23,5 @@ Route::post('contacts/import', 'ContactsController@import');
 Route::get('campaigns', 'CampaignsController@index');
 Route::post('campaigns', 'CampaignsController@create');
 Route::post('campaigns/{id}/publish', 'CampaignsController@publish');
+
+Route::get('numbers', 'NumbersController@index');

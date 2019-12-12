@@ -22,7 +22,7 @@
                         description="This must be a phone number registered in Twilio."
                         class="pt-3"
                     >
-                        <b-form-input v-model="form.phone" id="campaign-phone" placeholder="+15551234657" required />
+                        <b-form-select :options="numbers" v-model="form.phone" id="campaign-phone" required></b-form-select>
                     </b-form-group>
 
                     <b-form-group label="Message Body" label-for="campaign-message" class="pt-3 pb-3">
@@ -52,6 +52,8 @@
 export default {
     data: () => ({
         loading: false,
+        loadingNumbers: false,
+        numbers: [],
         form: {
             name: "",
             phone: "",
@@ -59,11 +61,28 @@ export default {
         }
     }),
 
-    mounted() {},
+    mounted() {
+        this.listNumbers();
+    },
 
     methods: {
         onSubmit() {
             this.createCampaign();
+        },
+
+        listNumbers() {
+            this.loadingNumbers = true;
+
+            axios.get('numbers')
+                .then((response) => {
+                    const data = response.data;
+                    this.numbers = data;
+                    this.loadingNumbers = false;
+                })
+                .catch((error) => {
+                    console.error(error);
+                    this.loadingNumbers = false;
+                });
         },
 
         createCampaign() {
