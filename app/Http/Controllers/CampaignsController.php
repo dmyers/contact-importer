@@ -15,6 +15,7 @@ class CampaignsController extends Controller
     public function index()
     {
         $campaigns = Campaign::query()
+            ->withCount('messages')
             ->latest()
             ->get();
 

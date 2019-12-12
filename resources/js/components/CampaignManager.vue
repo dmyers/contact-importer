@@ -34,9 +34,15 @@
                         </div>
 
                         <div class="float-right">
-                            <small v-if="campaign.published_at" class="mt-2 text-muted">
-                                Published: {{ campaign.created_at }}
-                            </small>
+                            <div v-if="campaign.published_at" class="mt-2 text-right text-muted">
+                                <h6 class="mb-0">
+                                    <strong>{{ campaign.messages_count }}</strong> messages
+                                </h6>
+
+                                <small class="mt-2">
+                                    Published: {{ campaign.created_at }}
+                                </small>
+                            </div>
 
                             <b-button v-if="!campaign.published_at" @click="publishCampaign(campaign)" variant="outline-success" size="sm">
                                 <span v-cloak v-show="campaign.loading">
