@@ -2,7 +2,9 @@
 
 namespace App\Jobs;
 
+use Exception;
 use App\Message;
+use Twilio\Rest\Client as TwilioClient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -34,16 +36,35 @@ class SendContactMessage implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param  \Twilio\Rest\Client  $twilio
      * @return void
      */
-    public function handle()
+    public function handle(TwilioClient $twilio)
     {
-        logger('sending message to contacts!');
-
         $message = $this->message;
+        $contact = $message->contact;
+        $campaign = $message->campaign;
+
+        $message->update(['status' => Message::STATUS_QUEUED]);
+
+        $to = $contact->phone;
+        $from = $campaign->phone;
+        $body = $message->body;
+
+        try {
+            $result = $twilio->messages->create($to, compact('from', 'body'));
+        }
+        catch (Exception $e) {
+            report($e);
+            $message->update(['status' => Message::STATUS_FAILED]);
+            return;
+        }
+
+        $twilio_id = $result->sid;
 
         $message->update([
-            'status' => Message::STATUS_QUEUED,
+            'twilio_id' => $twilio_id,
+            'status'    => Message::STATUS_DELIVERED,
         ]);
     }
 }
