@@ -13,7 +13,8 @@
         "laravel/framework": "^6.2",
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^1.0",
-        "laravel/vapor-core": "^2.1"
+        "laravel/vapor-core": "^2.1",
+        "twilio/sdk": "^5.40"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
