@@ -21,6 +21,8 @@ class CreateMessagesTable extends Migration
             $table->enum('status', ['pending', 'queued', 'delivered', 'failed'])->default('pending');
             $table->string('twilio_id')->nullable();
             $table->timestamps();
+
+            $table->unique(['campaign_id', 'contact_id']);
         });
     }
 
