@@ -44,6 +44,7 @@ class CampaignsController extends Controller
      * send messsages to contacts.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $campaign_id
      * @return \Illuminate\Http\Response
      */
     public function publish(Request $request, $campaign_id)
