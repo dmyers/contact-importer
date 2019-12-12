@@ -17,4 +17,24 @@ class Message extends Model
     const STATUS_QUEUED = 'queued';
     const STATUS_DELIVERED = 'delivered';
     const STATUS_FAILED = 'failed';
+
+    /**
+     * Get the contact for the message.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function contact()
+    {
+        return $this->belongsTo('App\Contact');
+    }
+
+    /**
+     * Get the campaign for the message.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function campaign()
+    {
+        return $this->belongsTo('App\Campaign');
+    }
 }

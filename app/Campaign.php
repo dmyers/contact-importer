@@ -15,6 +15,16 @@ class Campaign extends Model
     protected $guarded = ['id'];
 
     /**
+     * Get all of the messages for the campaign.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
+    /**
      * Publish the campaign and send messages to contacts.
      *
      * @return bool
